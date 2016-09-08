@@ -1,0 +1,37 @@
+body { /*basic layout */
+  /*padding: 50px;*/
+  margin: 10px;
+  padding: 20px;
+  border: 10px
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a { /* links layout*/
+  color: #00B7FF;
+}
+.menu ul { /*menu style [ul]*/
+	list-style-type: none;
+	
+}
+.menu ul li {  /*menu style [ul; li] */
+	display: inline;
+	padding-right: 20px;
+}
+
+.container {  /*Web page content container style goes here*/
+	
+
+}
+.title {
+  font-size: 14;
+
+}
+.secret {
+  padding-left: 15px; 
+}
+.secrets{
+  border: 2px solid black;
+}
+.feed {
+  clear: both;
+}

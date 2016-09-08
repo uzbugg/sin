@@ -1,0 +1,14 @@
+
+extends layout
+
+block content
+  h1= title
+  form(method="GET" action="/contact/send")
+    div.input
+      span.label first
+      input(type="text", name="first")
+    div.input
+      span.label last
+      input(type="text", name="last")    
+    div.actions
+      input(type="submit", value="add")

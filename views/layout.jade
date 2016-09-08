@@ -1,0 +1,20 @@
+doctype html
+- var _secret = secret
+- var _feed = feed
+- var _list = list
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		div( class="menu")
+			ul
+				li 
+					a(href="/contact", title="Contact")  Make secret!
+				li
+					a(href="/", title="Home") Home
+
+	div( class="conainer")				
+		block content	
+	div( class="footer")				
+

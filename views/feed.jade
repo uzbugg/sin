@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  
+  each value, index in _feed
+    div.feed
+      div.title
+        a(href="#{value.link}", title="#{value.title}") #{value.title}
+      div.content
+        #{value.content}
