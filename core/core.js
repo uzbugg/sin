@@ -21,7 +21,8 @@
 	module.exports = {
 		getFeedList: _getFeedList
 	};
-})(module);/*
+})(module);
+/*
 function core(userID) {
 
 	return {
