@@ -35,3 +35,7 @@ a { /* links layout*/
 .feed {
   clear: both;
 }
+.feedMenu ul li {  /*Feed chanel list style [ul; li] */
+  display: inline;
+  padding-right: 20px;
+}

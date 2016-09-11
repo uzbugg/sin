@@ -1,6 +1,11 @@
 extends layout
 block feed_menu
-  p This is a feed menu
+  ul
+    each value, index in _list
+      li
+        a(href="feed?id=#{value.id}", title="#{value.feedName}") #{value.feedName}
+
+
 block content
   h1= title
   p Welcome to #{title}

@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
       secret: array,
      });
   });
-  //console.log('aray: ' + array[0]['id'].id);
+ // console.log('aray: ' + array[0]['id'].id);
   
 });
 //console.log('aray: ' + array[0]);

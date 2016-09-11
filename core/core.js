@@ -1,23 +1,42 @@
 (function(module){
+	/*
+	* author: "Peter Czibor"
+	*/
 	'use strict';
-	//This class contains setting
-	//user setting
-	//core functions
-	//author: Peter Czibor
 
+	//Dependencies
+	var mysql = require('mysql');
+	//mysql connection
+	var connection = mysql.createConnection({
 
-	function _getFeedList(userID, callback) {
+	    host     : 'localhost',
+	    user     : 'root',
+	    password : 'root',
+	    database : 'node'
+ 	 });
 
+	//exports feed chanels from Db to jspn format
+	function _getFeedList(userID, callback) {   // FeedChanels
+		
 		console.log('Feeds for user: ' + userID);
+		/*
 		var feedList = {feed:{
 								feedName : "Aktuality.sk",
 								feedURL  : "http://www.aktuality.sk/rss"
 							}
 		};
-		callback(feedList);
+		callback(feedList); */ 
+
+		//Get feed chanels from DB ... 
+
+		connection.query('select id, feedName from feeds ORDER BY id ASC',  function(err, row, fields) {
+			if (err) throw err;
+		    var array = row;
+		    console.log(row);
+		    callback(array);
+		  });
 
 	}
-
 	module.exports = {
 		getFeedList: _getFeedList
 	};
