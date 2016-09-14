@@ -6,7 +6,7 @@ var mysql = require('mysql');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('contact', { title: 'Contact me!' });
+  res.render('manager', { title: 'Rss chanel manager' });
 });
 
 router.get('/send', function(req, res) {

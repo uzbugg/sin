@@ -16,7 +16,6 @@ router.get('/', function respond(req, res) {
 		chanel = 1;
 		console.log("Chanel undefined = 1");
 	} 
-
 	userFeed.getChanel(chanel, loadFeed);
 
 	function loadFeed(link) {

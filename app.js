@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var http = require('http');
 
 var routes = require('./routes/index');
-var contact = require('./routes/contact');
+var manager = require('./routes/manager');
 var feed = require('./routes/feed');
 
 
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //routes
 app.use('/', routes);
-app.use('/contact', contact);
+app.use('/manager', manager);
 app.use('/feed', feed);
 
 
