@@ -15,38 +15,42 @@ router.get('/send', function(req, res) {
 	var connection = mysql.createConnection({
 		host		: 'localhost',
 		user		: 'root',
-		password	: 'root'
+		password	: 'root',
+		database    : 'node'
 	});
-	connection.connect();
-	connection.query('USE node');
 
 	//Get the users respons, beaware of XSS
 	var response = {
-		first:req.query.first,
-		last:req.query.last
+		name:req.query.name,
+		chanel:req.query.Chanel,
+		description:req.query.Description
 	};
+
+	if (!response['description']) {
+		response['description'] = '';
+	}
 	//Log that shit
-	console.log('Ahoj: ' + response["first"] + ' ' + response["last"]);
-	res.send("Your e-mail has been sent. <a href='http://127.0.0.1:2000'>Go Back</a>");
+	console.log('Adding: ' + response["chanel"]);
 	console.log("Saving to DB");
 
 	//insert into stuff
 	var post = {
 
-		title:  response['first'],
-		secret: response['last']
+		feedName : response['name'],
+		feedLink: response['chanel'],
+		feedDesc: response['description']
 	};
 	
 
-		connection.query('INSERT INTO entry SET ?', post, function (err, result){ 
+		connection.query('INSERT INTO feeds SET ?', post, function (err, result){ 
 			if (err) {
-				console.log(err);
+				throw err;
 			} else {
-				console.log('SAAAAAAAVED');
+				console.log('SAAAAAAAVED :::: ' + result);
 			}});
-	connection.end();	
+	//res.send("Your chanel is now activated!");	
 	
-	//res.redirect(301, '/');
+	res.redirect(301, '/');
 });
 
 

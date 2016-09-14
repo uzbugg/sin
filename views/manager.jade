@@ -3,12 +3,15 @@ extends layout
 
 block content
   h1= title
-  form(method="GET" action="/contact/send")
+  form(method="GET" action="/manager/send")
     div.input
-      span.label first
-      input(type="text", name="first")
+      span.label Rss Chanel name:
+      input(type="text", name="name")
     div.input
-      span.label last
-      input(type="text", name="last")    
+      span.label Rss Chanel link:
+      input(type="text", name="Chanel")
+    div.input
+      span.label Rss Chanel description
+      input(type="text", name="Description")    
     div.actions
       input(type="submit", value="add")
