@@ -37,8 +37,22 @@
 		  });
 
 	}
+
+	function _getChanel(ChanelId, callback) {
+
+		connection.query('select feedLink from feeds where id = ' + ChanelId, function(err, row, fields){
+			if (err) {
+				console.log("uups!! something went wrong");
+				
+			}
+
+			console.log("link: " + row[0].feedLink);
+			callback(row);
+		});
+	}
 	module.exports = {
-		getFeedList: _getFeedList
+		getFeedList: _getFeedList,
+		getChanel: _getChanel
 	};
 })(module);
 /*

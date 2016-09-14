@@ -5,29 +5,37 @@ var rss = require('../core/rss.js');
 
 var router = express();
 
+router.get('/', function respond(req, res) {
+	console.log(req.query.id);
 
+	var chanel;
+	if (req.query.id) {
+		console.log("true");
+		chanel = req.query.id;
+	} else {
+		chanel = 1;
+		console.log("Chanel undefined = 1");
+	} 
 
-rss.read('http://www.aktuality.sk/rss', function(result){
-	//var json = JSON.parse(result);
-	console.log(result[0].title);
+	userFeed.getChanel(chanel, loadFeed);
 
-	userFeed.getFeedList(1, function(list){
-		//console.log("feed name:: " + list.feed.feedName);
+	function loadFeed(link) {
+		console.log('link::' + link[0].feedLink);
+		rss.read(link[0].feedLink, function(result){
 
-		var feedChanel = list;
-		//console.log("Chanel: " + feedChanel[0]['id'].id);
-		router.get('/', function(req, res) {
+			//Only for testing
+			userFeed.getFeedList(1, function(list){
+				var feedChanel = list;
 
-		res.render('feed', {
-			title: "Feed",
-			feedList: feedChanel, //List of all rss chanels
-			feed: result // rss.read() resdutl ... 
+				res.render('feed', {
+					title: "Feed",
+					feedList: feedChanel,
+					feed: result
+				});
 			});
 		});
-	});
+	}
+		
 });
-
-
-
 
 module.exports = router;
