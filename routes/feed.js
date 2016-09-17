@@ -21,7 +21,7 @@ router.get('/', function respond(req, res) {
 	function loadFeed(link) {
 		console.log('link::' + link[0].feedLink);
 		rss.read(link[0].feedLink, function(result){
-
+			
 			//Only for testing
 			userFeed.getFeedList(1, function(list){
 				var feedChanel = list;
@@ -34,6 +34,7 @@ router.get('/', function respond(req, res) {
 			});
 		});
 	}
+
 		
 });
 

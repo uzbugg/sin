@@ -6,6 +6,22 @@ body { /*basic layout */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.menu {
+  clear: both;
+}
+.head{
+  clear: both;
+}
+.feedMenu {
+  float: left
+}
+
+.display{
+  float: right;
+}
+
+
+
 a { /* links layout*/
   color: #00B7FF;
 }
@@ -36,6 +52,5 @@ a { /* links layout*/
   clear: both;
 }
 .feedMenu ul li {  /*Feed chanel list style [ul; li] */
-  display: inline;
-  padding-right: 20px;
+  list-style-type: none;
 }
