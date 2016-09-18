@@ -26,8 +26,11 @@ router.get('/send', function(req, res) {
 		description:req.query.Description
 	};
 
-	if (!response['description']) {
-		response['description'] = '';
+	if (!response['desc']) { //not working
+		response['desc'] = '';
+	}
+	if (!response['cat']) { //not working
+		response['cat'] = '';
 	}
 	//Log that shit
 	console.log('Adding: ' + response["chanel"]);
@@ -38,7 +41,8 @@ router.get('/send', function(req, res) {
 
 		feedName : response['name'],
 		feedLink: response['chanel'],
-		feedDesc: response['description']
+		feedDesc: response['desc'],
+		Category: response['cat']
 	};
 	
 
